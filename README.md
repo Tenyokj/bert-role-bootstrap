@@ -10,7 +10,12 @@ One-time self-claim distributor for initial `CURATOR_ROLE` and `REVIEWER_ROLE` s
 - owner closes distribution when bootstrap is complete
 - protocol admin then revokes `AUTO_GRANT_ROLE` from the distributor
 
-This project is intentionally separate from `bert-core-v2` because it is an operational bootstrap utility, not protocol core logic.
+This project is intentionally separate from [bert-core-arc](https://github.com/Tenyokj/bert-core-arc) because it is an operational bootstrap utility, not protocol core logic. The local `bert-core-v2` directory is a historical development copy.
+
+Current Arc Testnet deployment: `0xb0CA3E4F33994EAFe34a6257a0b904b8179A1b30`.
+Verify its active/closed state and role permissions before operational use. These
+global curator/reviewer roles do not grant V2.3 winning-backer milestone authority
+or V3.2 Community-local roles (or historical V3.1 roles).
 
 ## Contract
 
@@ -74,7 +79,7 @@ After deploy, the distributor still cannot issue roles until `RolesRegistry` gra
 You can do it with the included script:
 
 ```bash
-npm run grant:auto:sepolia
+npm run grant:auto:arcTestnet
 ```
 
 ## Seed allowlists
@@ -84,19 +89,19 @@ Edit `script-config/allowlists.sample.json` or point `ALLOWLIST_CONFIG_PATH` to 
 Then run:
 
 ```bash
-npm run seed:sepolia
+npm run seed:arcTestnet
 ```
 
 ## Close distribution
 
 ```bash
-npm run close:sepolia
+npm run close:arcTestnet
 ```
 
 After that, revoke `AUTO_GRANT_ROLE`:
 
 ```bash
-npm run revoke:auto:sepolia
+npm run revoke:auto:arcTestnet
 ```
 
 ## Suggested real-world flow
